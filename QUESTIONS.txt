@@ -1,0 +1,29 @@
+QUESTIONS
+
+1. As mentioned above, a particle size distribution will produce a result containing multiple particle sizes and the amount of material measured for each size, which can then be used to produce a graph like the one shown below. What changes would need to be made to your solution and calculations in order to accommodate a particle size distribution?
+
+I have several ideas for this. Considering the range of data is between 10nm and 3500000nm, and making some assumptions based on my test cases, I believe it would be necessary to break up the data into data sets consisting of equally sized ranges. The testing never resulted in a number showing up more than once without being intentionally modified. This could be the result of too small of a sample size, or that the numbers are "random" opposed to produced naturally. This is one idea which could be necessary, especially for smaller sample sizes.
+
+Outliers could be removed. This could improve the graphical representation by helping prevent the result appearing as a single thin vertical line in the center of the graph.
+
+Also, size can have different interpretations. We can treat a particle as a sphere and use volume to represent size, or we can interpret size as mass considering particles often range in density and can be fibrous. 
+
+Changes to my solution would include determining ranges for the distribution, and storing the count of particles for each range. If outliers were to be removed, I would need to calculate the first and third quartile ranges, then use them to find the interquartile range. From this I can easily calculate the lower and upper bounds for the data that won't include the outliers. I would need to add a line of code to ignore these outliers as well. If the size I was given is a volume and I needed mass for size, then I would multiply volume x density. If the number was mass and I needed volume, then I would divide mass / density. I would obviously need the density of the particles being analyzed, and I would need to write a function which calculated the size; this is only if the size given is not the intended interpretation. 
+
+
+
+2. What improvements could be made to your solution to be more efficient?
+
+I also have several ideas for this answer. To make the program run using big data, which I assume Beckman Coulter would need, I would need to convert my array which stores particles sizes to a linked list. This is more memory intensive but necessary with large enough data. 
+
+Also, I could implement an external merge sort which breaks up large data sets into individual files before merging and sorting. This type of sort is necessary when data sets become large enough.
+
+I need to convert some of numbers in my program to be unsigned long long numbers, i.e. size, sum, (sum of squares for SD), etc, as well as converting their corresponding print specifiers to the appropriate values.
+
+These things would only be more efficient in a big data situation. To be more efficient using a set of data like the example given in the email, I would first convert all the numbers to the smallest types possible for their purposes. I could cut out a single loop through the data set by calculating the mean and the modes in the same function and loop. There are a couple little things like this.
+
+If I knew more about the data I might be able to find a more efficient search algorithm. As far as actual computing time, most tests I've seen find quicksort, on average, to be the optimal sort for a large enough, and random set of data.
+
+I considered a binary search tree, but it only seemed to improve the speed for finding the median by one operation and it uses much more memory than an array. 
+
+As far as complexity, you can't do better than O(n). This is because there is no way to shorten the time it takes to loop through the data and find the mean. I suppose I could have calculated the sum of the data as it is being imported from the txt file which would save a loop, but the complexity would remain unchanged. The worst case complexity is currently held by the quicksort algorithm. There are algorithms which have a lower worst case complexity, but considering memory and operations conducted, I think I chose an excellent algorithm. Merge or heap sort could be debatable depending on the data and size.     

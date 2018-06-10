@@ -1,0 +1,64 @@
+*****************************************************************
+*	   		TEST CASES				*
+*****************************************************************
+
+TEST NUMBER		    EXPECTED OUTPUT	ACTUAL OUTPUT
+--------------------------------------------------------------------
+
+TEST 0-              Count: 0 			Prints error
+	 	      Mean: NULL	
+       	            Median: NULL
+	 	      Mode: NULL
+  	Standard Deviation: NULL
+  Coefficient of Variation: NULL
+	
+TEST 1-              Count: 1 			1
+	 	      Mean: 46			46	
+       	            Median: 46			46
+	 	      Mode: 46			46
+  	Standard Deviation: 0			0
+  Coefficient of Variation: 0			0
+
+TEST 2-              Count: 12 			12
+	 	      Mean: 51			51
+       	            Median: 56			56
+	 	      Mode: 3, 60		3, 60
+  	Standard Deviation: 32.3587841102	32.358784
+  Coefficient of Variation: 63.4485962945	63.448596
+
+TEST 3-              Count: 100			100
+	 	      Mean: 488355.5		488355.5
+       	            Median: 437331.5		437331.5
+	 	      Mode: Every Number	Every Number
+  	Standard Deviation: 291217.78196	291217.781957
+  Coefficient of Variation: 59.9327297343	59.932730
+
+TEST 4-              Count: 101 		101
+	 	      Mean: 704450		704450
+       	            Median: 667183		667183
+	 	      Mode: Every Number	Every Number
+  	Standard Deviation: 417353.528		417353.528047
+  Coefficient of Variation: 59.2453017314	59.245302
+
+TEST 5-              Count: 2000 		Data Set too large, runtime error
+	 	      Mean: 754601.2205		
+       	            Median: 762027		
+	 	      Mode: Every Number
+  	Standard Deviation: 434736.070359
+  Coefficient of Variation: 57.6257741621
+
+NOTE: Test 6 uses test 4 data with a random value copied. Should show a mode and median should be different than test 4. 
+TEST 6-              Count: 102			102
+	 	      Mean: 702254.686275	702254.686275
+       	            Median: 663404.5		663404.5
+	 	      Mode: 480528		480528
+  	Standard Deviation: 415873.722032	415873.722032
+  Coefficient of Variation: 59.2197859495	59.219786
+
+NOTE: Test 7 uses test 2 data concatenated with the original data from the email.  
+TEST 7-              Count: 18			18
+	 	      Mean: 46.6111111111	46.611111
+       	            Median: 47.5		47.5
+	 	      Mode: 3, 23, 60		3, 23, 60
+  	Standard Deviation: 31.6949678601	31.694968
+  Coefficient of Variation: 69.9701253359	69.970125
